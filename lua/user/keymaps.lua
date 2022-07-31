@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
+--------------------------- Normal ----------------------------
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", options)
 keymap("n", "<C-j>", "<C-w>j", options)
@@ -38,9 +38,32 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", options)
 keymap("n", "<S-l>", ":bnext<CR>", options)
 keymap("n", "<S-h>", ":bprevious<CR>", options)
 
--- Insert --
+--------------------------- Insert ----------------------------
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", options)
 
--- Visual --
+--------------------------- Visual ----------------------------
 -- Stay in indent mode
+keymap("v", "<", "<gv", options)
+keymap("v", ">", ">gv", options)
+
+-- Move text up and down
+keymap("v", "<A-j>", ":m .+1<CR>==", options)
+keymap("v", "<A-k>", ":m .-2<CR>==", options)
+
+-- Hold onto the current "paste" text within the clipboard
+keymap("v", "p", '"_dP', options) 
+
+--------------------------- Visual Block ----------------------------
+-- Move text up and down
+keymap("x", "J", ":move '>+1<CR>gv-gv", options)
+keymap("x", "K", ":move '<-2<CR>gv-gv", options)
+keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", options)
+keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", options)
+
+-- Terminal --
+-- Better terminal navigation
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", terminal_options)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", terminal_options)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", terminal_options)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", terminal_options)
