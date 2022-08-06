@@ -1,5 +1,5 @@
 # Neovim Configuration
 
-## Plugins:
+## Plugins
 
-- [packer.nvim](https://github.com/wbthomason/packer.nvim) -- Neovim plugins manager
+- [packer.nvim](https://github.com/wbthomason/packer.nvim) -- Neovim plugin manager

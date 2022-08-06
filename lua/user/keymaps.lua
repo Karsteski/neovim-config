@@ -38,6 +38,12 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", options)
 keymap("n", "<S-l>", ":bnext<CR>", options)
 keymap("n", "<S-h>", ":bprevious<CR>", options)
 
+-- Convenient save
+keymap("n", "<C-s>", ":w<CR>", options)
+
+-- Convenient exit if unless unsaved changes
+keymap("n", "<leader>q", ":qa<CR>", options)
+
 --------------------------- Insert ----------------------------
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", options)
