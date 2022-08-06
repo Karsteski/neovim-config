@@ -22,9 +22,27 @@ vim.cmd [[
     augroup end
 ]]
 
-return require('packer').startup(function(use)
-    
+-- Use a protected call so that neovim doesn't error out on the first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+    print("There was an error (status_ok returned false)...")
+    return
+end
+
+-- Use a popup window instead for style
+packer.init {
+    display = {
+        open_fn = function()
+            return require("packer.util").float { border = "rounded" }
+        end,
+    },
+}
+
+return packer.startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+
 end)
+
+
 
