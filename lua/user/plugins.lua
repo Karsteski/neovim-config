@@ -39,8 +39,17 @@ packer.init {
 }
 
 return packer.startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'                       -- Packer can manage itself
+
+
+
+
+
+    -- Automatically set up config after cloning packer.nvim
+    -- Must be at the end after all the plugins have been called
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 
 end)
 
