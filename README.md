@@ -1,3 +1,5 @@
 # Neovim Configuration
 
-- Just a repo to document my Neovim config.
+## Plugins:
+
+- [packer.nvim](https://github.com/wbthomason/packer.nvim) -- Neovim plugins manager
