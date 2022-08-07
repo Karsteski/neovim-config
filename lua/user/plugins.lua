@@ -1,4 +1,4 @@
-require('plugins/lualine')
+require('user.plugins.lualine')
 
 -- Automatically install packer.nvim if it hasn't been already
 local fn = vim.fn
@@ -50,11 +50,7 @@ return packer.startup(function(use)
 
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'
-
-
-
-
-
+    use 'edeneast/nightfox.nvim'
 
     -- Automatically set up config after cloning packer.nvim
     -- Must be at the end after all the plugins have been called
