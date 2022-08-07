@@ -41,6 +41,9 @@ packer.init {
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'                       -- Packer can manage itself
 
+    -- Colour schemes
+    use 'shaunsingh/solarized.nvim'
+
 
 
 
