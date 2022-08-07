@@ -1,3 +1,5 @@
+require('plugins/lualine')
+
 -- Automatically install packer.nvim if it hasn't been already
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -41,8 +43,14 @@ packer.init {
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'                       -- Packer can manage itself
 
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'
+
 
 
 
