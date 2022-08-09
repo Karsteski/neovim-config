@@ -58,6 +58,8 @@ return packer.startup(function(use)
         "neovim/nvim-lspconfig",
     }
 
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'
     use 'edeneast/nightfox.nvim'
