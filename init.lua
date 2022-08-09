@@ -6,6 +6,8 @@ require("user.options")
 require("user.keymaps")
 require("user.plugins")
 
+-- Plugin Configurations
 require('user.plugins.bufferline')
 require('user.plugins.lualine')
+require('user.plugins.mason')
 

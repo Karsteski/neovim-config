@@ -52,6 +52,12 @@ return packer.startup(function(use)
         requires = 'kyazdani42/nvim-web-devicons'
     }
 
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
+
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'
     use 'edeneast/nightfox.nvim'

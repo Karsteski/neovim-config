@@ -42,7 +42,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", options)
 keymap("n", "<C-s>", ":w<CR>", options)
 
 -- Convenient exit if unless unsaved changes
-keymap("n", "<leader>q", ":qa<CR>", options)
+keymap("n", "<leader>q", ":q<CR>", options)
 
 --------------------------- Insert ----------------------------
 -- Press jk fast to enter
