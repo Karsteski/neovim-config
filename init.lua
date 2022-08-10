@@ -11,4 +11,5 @@ require('user.plugins.bufferline')
 require('user.plugins.lualine')
 require('user.plugins.mason')
 require('user.plugins.lspconfig')
+require('user.plugins.toggleterm')
 

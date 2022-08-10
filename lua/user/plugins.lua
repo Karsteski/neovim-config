@@ -60,6 +60,8 @@ return packer.startup(function(use)
 
     use 'jose-elias-alvarez/null-ls.nvim'
 
+    use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
+
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'
     use 'edeneast/nightfox.nvim'
