@@ -62,6 +62,10 @@ return packer.startup(function(use)
 
     use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
 
+    use {
+        "windwp/nvim-autopairs"
+    }
+
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'
     use 'edeneast/nightfox.nvim'
