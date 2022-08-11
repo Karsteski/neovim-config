@@ -14,9 +14,11 @@
     - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) -- Neovim Lua functions library
 - [toggleterm](https://github.com/akinsho/toggleterm.nvim) -- Toggle Terminals
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) -- Treesitter configurations and abstraction layer
-- []
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) -- Fuzzy finder
+- [nvim-notify](https://github.com/rcarriga/nvim-notify) -- Notification manager
 
 ## Colour schemes
+
 - [solarized.nvim](https://github.com/shaunsingh/solarized.nvim)
 - [nightfox.nvim](https://github.com/edeneast/nightfox.nvim)
 

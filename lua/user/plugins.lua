@@ -82,8 +82,10 @@ return packer.startup(function(use)
         }
     }
 
+
     use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
     use "windwp/nvim-autopairs"
+    use "rcarriga/nvim-notify"
 
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'

@@ -180,3 +180,9 @@ keymap("n", "ff", ":Telescope find_files <CR>", options)
 keymap("n", "fg", ":Telescope live_grep <CR>", options)
 keymap("n", "fb", ":Telescope buffers <CR>", options)
 keymap("n", "fh", ":Telescope help_tags <CR>", options)
+
+-- Use nvim-notify to search the notification history
+local function telescope_notify()
+    require('telescope').extensions.notify.notify()
+end
+vim.keymap.set("n", "fn", telescope_notify, options)
