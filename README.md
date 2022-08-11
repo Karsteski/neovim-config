@@ -17,6 +17,7 @@
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) -- Fuzzy finder
 - [nvim-notify](https://github.com/rcarriga/nvim-notify) -- Notification manager
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) -- Git decorations for Neovim
+- [project.nvim](https://github.com/ahmedkhalf/project.nvim) -- Neovim project management
 
 ## Colour schemes
 

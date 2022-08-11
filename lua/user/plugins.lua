@@ -87,6 +87,7 @@ return packer.startup(function(use)
     use "windwp/nvim-autopairs"
     use "rcarriga/nvim-notify"
     use "lewis6991/gitsigns.nvim"
+    use "ahmedkhalf/project.nvim"
 
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'

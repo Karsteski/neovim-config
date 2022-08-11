@@ -189,3 +189,7 @@ vim.keymap.set("n", "fn", telescope_notify, options)
 
 -- Gitsigns.nvim
 keymap("n", "bl", ":Gitsigns blame_line <CR>", options)
+
+-- Projects.nvim: Telescope Integration keymap
+
+keymap("n", "fp", ":Telescope projects <CR>", options)
