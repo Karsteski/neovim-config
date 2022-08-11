@@ -171,3 +171,12 @@ NVIM_TREE_MAPPINGS = { -- BEGIN_DEFAULT_MAPPINGS
     { key = "m",                              action = "toggle_mark" },
     { key = "bmv",                            action = "bulk_move" },
 } -- END_DEFAULT_MAPPINGS
+
+
+-- Telescope.nvim mappings ---------------------------------------------
+-- Checkout the following link for the default Telescope mappings 
+-- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
+keymap("n", "ff", ":Telescope find_files <CR>", options)
+keymap("n", "fg", ":Telescope live_grep <CR>", options)
+keymap("n", "fb", ":Telescope buffers <CR>", options)
+keymap("n", "fh", ":Telescope help_tags <CR>", options)

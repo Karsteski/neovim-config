@@ -74,6 +74,14 @@ return packer.startup(function(use)
         'jose-elias-alvarez/null-ls.nvim',
         requires = {'nvim-lua/plenary.nvim'}
     }
+
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = {
+            'nvim-lua/plenary.nvim',
+        }
+    }
+
     use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
     use "windwp/nvim-autopairs"
 
