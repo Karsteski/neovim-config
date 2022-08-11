@@ -6,7 +6,10 @@ require("null-ls").setup({
         require("null-ls").builtins.formatting.markdownlint,
 
         require("null-ls").builtins.diagnostics.eslint,
-        require("null-ls").builtins.diagnostics.markdownlint,
+
+        require("null-ls").builtins.diagnostics.markdownlint.with({
+            extra_args = {"--disable MD013"} -- Disable line_length checking
+        }),
 
         require("null-ls").builtins.completion.spell,
     },
