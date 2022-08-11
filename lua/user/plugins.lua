@@ -70,7 +70,10 @@ return packer.startup(function(use)
         run = ':TSUpdate'
     }
 
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use {
+        'jose-elias-alvarez/null-ls.nvim',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
     use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
     use "windwp/nvim-autopairs"
 
