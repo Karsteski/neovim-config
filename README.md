@@ -12,6 +12,7 @@
 - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) -- Neovim File Explorer
 - [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) -- LSP diagnostics, code actions and more
 - [toggleterm](https://github.com/akinsho/toggleterm.nvim) -- Toggle Terminals
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) -- Treesitter configurations and abstraction layer
 
 ## Colour schemes
 - [solarized.nvim](https://github.com/shaunsingh/solarized.nvim)

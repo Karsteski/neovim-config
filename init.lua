@@ -13,4 +13,4 @@ require('user.plugins.lspconfig')
 require('user.plugins.toggleterm')
 require('user.plugins.nvim-autopairs')
 require('user.plugins.nvim-tree')
-
+require('user.plugins.nvim-treesitter')

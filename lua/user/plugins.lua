@@ -2,7 +2,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({
+    PACKER_BOOTSTRAP = fn.system({
         'git',
         'clone',
         '--depth',
@@ -65,6 +65,11 @@ return packer.startup(function(use)
         },
     }
 
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
     use 'jose-elias-alvarez/null-ls.nvim'
     use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
     use "windwp/nvim-autopairs"
@@ -75,7 +80,7 @@ return packer.startup(function(use)
 
     -- Automatically set up config after cloning packer.nvim
     -- Must be at the end after all the plugins have been called
-    if packer_bootstrap then
+    if PACKER_BOOTSTRAP then
         require('packer').sync()
     end
 
