@@ -186,3 +186,6 @@ local function telescope_notify()
     require('telescope').extensions.notify.notify()
 end
 vim.keymap.set("n", "fn", telescope_notify, options)
+
+-- Gitsigns.nvim
+keymap("n", "bl", ":Gitsigns blame_line <CR>", options)
