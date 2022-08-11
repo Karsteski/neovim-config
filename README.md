@@ -2,7 +2,7 @@
 
 ## Plugins
 
-- [packer.nvim](https://github.com/wbthomason/packer.nvim)                          Neovim plugin manager
+- [packer.nvim](https://github.com/wbthomason/packer.nvim)                          -- Neovim plugin manager
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)                      -- Neovim status line
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)              -- Icon provider
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)                     -- A snazzy bufferline
