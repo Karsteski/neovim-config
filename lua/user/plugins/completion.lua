@@ -17,6 +17,7 @@ local lsp_defaults = {
 -- Extend lspconfig's global config
 local lspconfig = require('lspconfig')
 
+-- Need to merge lsp_defaults w/ lspconfig's global config. This is the safe way.
 lspconfig.util.default_config = vim.tbl_deep_extend(
     'force',
     lspconfig.util.default_config,
@@ -81,7 +82,9 @@ local kind_icons = {
 
 cmp.setup({
     sources = {
-        { name = 'nvim_lsp' }
+        { name = 'path'},
+        { name = 'nvim_lsp' },
+        { name = 'buffer' },
     },
     window = {
         documentation = {

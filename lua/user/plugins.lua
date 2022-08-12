@@ -53,10 +53,16 @@ return packer.startup(function(use)
         requires = 'kyazdani42/nvim-web-devicons'
     }
 
+    -- LSP and Completion
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+
+    use 'hrsh7th/cmp-nvim-lsp',
+    use 'hrsh7th/nvim-cmp',
+    use 'hrsh7th/cmp-buffer',
+    use 'hrsh7th/cmp-path',
     }
 
     use {
@@ -90,9 +96,7 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"
     use "ahmedkhalf/project.nvim"
 
-    -- LSP
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/nvim-cmp'
+
 
 
     -- Colour schemes
