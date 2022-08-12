@@ -1,0 +1,66 @@
+-- For global variable ON_ATTACH
+require('user.keymaps')
+
+local cmp_status_ok, cmp = pcall(require, 'cmp')
+if not cmp_status_ok then
+    return
+end
+
+local lsp_defaults = {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    on_attach = ON_ATTACH 
+}
+
+-- Extend lspconfig's global config
+
+cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' }
+    },
+    window = {
+        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered()
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<leader>v'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({select = true})
+
+    }),
+    formatting = {
+        fields = {'menu', 'abbr', 'kind'}
+    }
+})
+
+
+require'lspconfig'.clangd.setup({
+    settings = {
+        lsp_defaults
+    }
+})
+
+-- Advertise capabilities to the server
+require'lspconfig'.sumneko_lua.setup({
+  settings = {
+    lsp_defaults,
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
+
+

@@ -6,17 +6,17 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 require('lspconfig')['pyright'].setup{
-    on_attach = on_attach,
+    on_attach = ON_ATTACH,
     flags = lsp_flags,
 }
 require('lspconfig')['clangd'].setup{
-    on_attach = on_attach,
+    on_attach = ON_ATTACH,
     flags = lsp_flags,
 }
 
 require'lspconfig'.sumneko_lua.setup({
   settings = {
-      on_attach = on_attach,
+      on_attach = ON_ATTACH,
       flags = lsp_flags,
     Lua = {
       runtime = {

@@ -29,6 +29,7 @@ if not status_ok then
     return
 end
 
+
 -- Use a popup window instead for style
 packer.init {
     display = {
@@ -88,6 +89,11 @@ return packer.startup(function(use)
     use "rcarriga/nvim-notify"
     use "lewis6991/gitsigns.nvim"
     use "ahmedkhalf/project.nvim"
+
+    -- LSP
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/nvim-cmp'
+
 
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'
