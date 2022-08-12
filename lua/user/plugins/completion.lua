@@ -23,8 +23,32 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
     lsp_defaults
 )
 
-lspconfig['sumneko_lua'].setup({})
-
+lspconfig['sumneko_lua'].setup({
+    single_file_support = true,
+    -- Must call the on_attach in default_config as these options override the global config
+    on_attach = lsp_defaults.on_attach,
+    settings = {
+    lsp_defaults,
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
 
 local kind_icons = {
   Text = "",
@@ -85,29 +109,4 @@ require'lspconfig'.clangd.setup({
     }
 })
 
--- Advertise capabilities to the server
---[[
-require'lspconfig'.sumneko_lua.setup({
-  settings = {
-    lsp_defaults,
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-})
---]]
+
