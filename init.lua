@@ -8,14 +8,18 @@ require("user.plugins")
 -- Plugin Configurations
 require('user.plugins.bufferline')
 require('user.plugins.lualine')
-require('user.plugins.mason')
-require('user.plugins.lspconfig')
 require('user.plugins.toggleterm')
 require('user.plugins.nvim-autopairs')
 require('user.plugins.nvim-tree')
 require('user.plugins.nvim-treesitter')
-require('user.plugins.null-ls')
 require('user.plugins.telescope')
 require('user.plugins.nvim-notify')
 require('user.plugins.gitsigns')
 require('user.plugins.project')
+
+ -- LSP and Completion
+require('user.plugins.lspconfig')
+require('user.plugins.null-ls')
+require('user.plugins.mason')
+require('user.plugins.completion')
+
