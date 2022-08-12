@@ -7,19 +7,63 @@ if not cmp_status_ok then
 end
 
 local lsp_defaults = {
+    flags = {
+        debounce_text_changes = 150
+    },
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    on_attach = ON_ATTACH 
+    on_attach = ON_ATTACH
 }
 
 -- Extend lspconfig's global config
+local lspconfig = require('lspconfig')
+
+lspconfig.util.default_config = vim.tbl_deep_extend(
+    'force',
+    lspconfig.util.default_config,
+    lsp_defaults
+)
+
+lspconfig['sumneko_lua'].setup({})
+
+
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+
 
 cmp.setup({
     sources = {
         { name = 'nvim_lsp' }
     },
     window = {
-        documentation = cmp.config.window.bordered(),
-        completion = cmp.config.window.bordered()
+        documentation = {
+            cmp.config.window.bordered(),
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+        }
     },
     mapping = cmp.mapping.preset.insert({
         ['<leader>v'] = cmp.mapping.complete(),
@@ -28,9 +72,12 @@ cmp.setup({
     }),
     formatting = {
         fields = {'menu', 'abbr', 'kind'}
+    },
+    experimental ={
+        ghost_text = false,
+        native_menu = false
     }
 })
-
 
 require'lspconfig'.clangd.setup({
     settings = {
@@ -39,6 +86,7 @@ require'lspconfig'.clangd.setup({
 })
 
 -- Advertise capabilities to the server
+--[[
 require'lspconfig'.sumneko_lua.setup({
   settings = {
     lsp_defaults,
@@ -62,5 +110,4 @@ require'lspconfig'.sumneko_lua.setup({
     },
   },
 })
-
-
+--]]
