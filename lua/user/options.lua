@@ -36,7 +36,7 @@ local options = {
     wrap = true,                            -- display lines as one long line
     scrolloff = 8,                           -- is one of my fav
     sidescrolloff = 8,
-    guifont = "monospace:h17",               -- the font used in graphical neovim applications
+guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
 for key, value in pairs(options) do
@@ -46,4 +46,16 @@ end
 -- Run vimscript as a string
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+-- Completion and diagnostic
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})
+

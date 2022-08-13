@@ -94,6 +94,18 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+-- Dianostic windows with borders -----------------------------------------
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {border = 'rounded'}
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {border = 'rounded'}
+)
+
+-- And finally, the completion setup --------------------------------------
 cmp.setup({
     sources = {
         { name = 'path' },
@@ -162,9 +174,5 @@ cmp.setup({
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false
-    },
-    experimental = {
-        ghost_text = false,
-        native_menu = false
     }
 })
