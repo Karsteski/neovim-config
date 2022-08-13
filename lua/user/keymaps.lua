@@ -67,7 +67,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", options)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", options)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", options)
 
-
 -- Terminal --------------------------------------
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", terminal_options)
@@ -75,137 +74,135 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", terminal_options)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", terminal_options)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", terminal_options)
 
-
 -- LspConfig -------------------------------------
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>v', vim.diagnostic.setloclist, opts)
-vim.keymap.set('n', '<leader>y',vim.lsp.buf.formatting, opts)
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<leader>f", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+vim.keymap.set("n", "<leader>v", vim.diagnostic.setloclist, opts)
+vim.keymap.set("n", "<leader>y", vim.lsp.buf.formatting, opts)
 
 -- Completion and diagnostic keybindings
-local cmp_status_ok, cmp = pcall(require, 'cmp')
+local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-    return
+	return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
-  return
+	return
 end
 
 -- Auxillary function
 local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
 COMPLETION_MAPPINGS = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-        ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-        ["<C-e>"] = cmp.mapping {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        },
-            -- Accept currently selected item. If none selected, `select` first item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = true },
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif check_backspace() then
-        fallback()
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    })
+	["<C-k>"] = cmp.mapping.select_prev_item(),
+	["<C-j>"] = cmp.mapping.select_next_item(),
+	["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+	["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+	["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+	["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+	["<C-e>"] = cmp.mapping({
+		i = cmp.mapping.abort(),
+		c = cmp.mapping.close(),
+	}),
+	-- Accept currently selected item. If none selected, `select` first item.
+	-- Set `select` to `false` to only confirm explicitly selected items.
+	["<CR>"] = cmp.mapping.confirm({ select = true }),
+	["<Tab>"] = cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_next_item()
+		elseif luasnip.expandable() then
+			luasnip.expand()
+		elseif luasnip.expand_or_jumpable() then
+			luasnip.expand_or_jump()
+		elseif check_backspace() then
+			fallback()
+		else
+			fallback()
+		end
+	end, {
+		"i",
+		"s",
+	}),
+	["<S-Tab>"] = cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_prev_item()
+		elseif luasnip.jumpable(-1) then
+			luasnip.jump(-1)
+		else
+			fallback()
+		end
+	end, {
+		"i",
+		"s",
+	}),
 })
 
-
-
 -- Use an on_attach function to only map the following keys
--- after the language server attaches to the current 
+-- after the language server attaches to the current
 ON_ATTACH = function(client, bufnr)
-    -- Mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufmap = function(mode, lhs, rhs)
-      local lsp_opts = {buffer = true}
-      vim.keymap.set(mode, lhs, rhs, lsp_opts)
-    end
+	-- Mappings.
+	-- See `:help vim.lsp.*` for documentation on any of the below functions
+	local bufmap = function(mode, lhs, rhs)
+		local lsp_opts = { buffer = true }
+		vim.keymap.set(mode, lhs, rhs, lsp_opts)
+	end
 
-    -- Displays hover information about the symbol under the cursor
-    bufmap('n', 'K', vim.lsp.buf.hover)
+	-- Displays hover information about the symbol under the cursor
+	bufmap("n", "K", vim.lsp.buf.hover)
 
-    -- Jump to the definition
-    bufmap('n', 'gd', vim.lsp.buf.definition)
+	-- Jump to the definition
+	bufmap("n", "gd", vim.lsp.buf.definition)
 
-    -- Jump to declaration
-    bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
+	-- Jump to declaration
+	bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
 
-    -- Lists all the implementations for the symbol under the cursor
-    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
+	-- Lists all the implementations for the symbol under the cursor
+	bufmap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
 
-    -- Jumps to the definition of the type symbol
-    bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
+	-- Jumps to the definition of the type symbol
+	bufmap("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
 
-    -- Lists all the references 
-    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+	-- Lists all the references
+	bufmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
 
-    -- Displays a function's signature information
-    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+	-- Displays a function's signature information
+	bufmap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
 
-    -- Renames all references to the symbol under the cursor
-    bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+	-- Renames all references to the symbol under the cursor
+	bufmap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
 
-    -- Selects a code action available at the current cursor position
-    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-    bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+	-- Selects a code action available at the current cursor position
+	bufmap("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+	bufmap("x", "<F4>", "<cmd>lua vim.lsp.buf.range_code_action()<cr>")
 
-    -- Show diagnostics in a floating window
-    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+	-- Show diagnostics in a floating window
+	bufmap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
 
-    -- Move to the previous diagnostic
-    bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+	-- Move to the previous diagnostic
+	bufmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 
-    -- Move to the next diagnostic
-    bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+	-- Move to the next diagnostic
+	bufmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 end
 
 -- Toggleterm ----------------------------------------------
-keymap('n', '<leader>t', ':ToggleTerm direction=float<CR>', terminal_options)
-keymap('t', '<leader>t', [[<C-\><C-n> :ToggleTerm<CR>]], terminal_options)
-keymap('n', '<leader>g', [[:2TermExec cmd="lazygit" direction=float <CR>]], terminal_options)
+keymap("n", "<leader>t", ":ToggleTerm direction=float<CR>", terminal_options)
+keymap("t", "<leader>t", [[<C-\><C-n> :ToggleTerm<CR>]], terminal_options)
+keymap("n", "<leader>g", [[:2TermExec cmd="lazygit" direction=float <CR>]], terminal_options)
 
 -- Nvim-tree ------------------------------------------------
 keymap("n", "<leader>e", ":NvimTreeToggle <CR>", options)
 keymap("n", "<leader><S-e>", ":NvimTreeFindFile <CR>", options)
 
 -- Nvim-tree default mappings
+-- stylua: ignore 
 NVIM_TREE_MAPPINGS = { -- BEGIN_DEFAULT_MAPPINGS
     { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
     { key = "<C-e>",                          action = "edit_in_place" },
@@ -255,9 +252,8 @@ NVIM_TREE_MAPPINGS = { -- BEGIN_DEFAULT_MAPPINGS
     { key = "bmv",                            action = "bulk_move" },
 } -- END_DEFAULT_MAPPINGS
 
-
 -- Telescope.nvim mappings ---------------------------------------------
--- Checkout the following link for the default Telescope mappings 
+-- Checkout the following link for the default Telescope mappings
 -- https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
 keymap("n", "ff", ":Telescope find_files <CR>", options)
 keymap("n", "fg", ":Telescope live_grep <CR>", options)
@@ -266,7 +262,7 @@ keymap("n", "fh", ":Telescope help_tags <CR>", options)
 
 -- Use nvim-notify to search the notification history
 local function telescope_notify()
-    require('telescope').extensions.notify.notify()
+	require("telescope").extensions.notify.notify()
 end
 vim.keymap.set("n", "fn", telescope_notify, options)
 
@@ -278,33 +274,33 @@ keymap("n", "fp", ":Telescope projects <CR>", options)
 
 -- Comment.nvim keybinds
 COMMENT_KEYMAPS = {
- ---LHS of toggle mappings in NORMAL mode
-    ---@type table
-    toggler = {
-        ---Line-comment toggle keymap
-        line = 'gcc',
-        ---Block-comment toggle keymap
-        block = 'gbc',
-    },
+	---LHS of toggle mappings in NORMAL mode
+	---@type table
+	toggler = {
+		---Line-comment toggle keymap
+		line = "gcc",
+		---Block-comment toggle keymap
+		block = "gbc",
+	},
 
-    ---LHS of operator-pending mappings in NORMAL mode
-    ---LHS of mapping in VISUAL mode
-    ---@type table
-    opleader = {
-        ---Line-comment keymap
-        line = 'gc',
-        ---Block-comment keymap
-        block = 'gb',
-    },
+	---LHS of operator-pending mappings in NORMAL mode
+	---LHS of mapping in VISUAL mode
+	---@type table
+	opleader = {
+		---Line-comment keymap
+		line = "gc",
+		---Block-comment keymap
+		block = "gb",
+	},
 
-    ---LHS of extra mappings
-    ---@type table
-    extra = {
-        ---Add comment on the line above
-        above = 'gcO',
-        ---Add comment on the line below
-        below = 'gco',
-        ---Add comment at the end of line
-        eol = 'gcA',
-    },
+	---LHS of extra mappings
+	---@type table
+	extra = {
+		---Add comment on the line above
+		above = "gcO",
+		---Add comment on the line below
+		below = "gco",
+		---Add comment at the end of line
+		eol = "gcA",
+	},
 }

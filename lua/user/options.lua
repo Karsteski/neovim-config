@@ -1,7 +1,8 @@
 -- :help options
 
-vim.opt.shortmess:append "c"                    -- Interprets "word-word" as a single word
+vim.opt.shortmess:append("c") -- Interprets "word-word" as a single word
 
+--stylua: ignore
 local options = {
     clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
     backup = false,                          -- creates a backup file
@@ -44,37 +45,36 @@ for key, value in pairs(options) do
 end
 
 -- Run vimscript as a string
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
 
 -- Completion and iagnostics
 local signs = {
-    { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" }
+	{ name = "DiagnosticSignError", text = "" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "" },
+	{ name = "DiagnosticSignInfo", text = "" },
 }
 
 for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
 vim.diagnostic.config({
-  virtual_text = false,
-  severity_sort = true,
-  update_in_insert = true,
-  underline = true,
+	virtual_text = false,
+	severity_sort = true,
+	update_in_insert = true,
+	underline = true,
 
-  float = {
-    focusable = false,
-    border = 'rounded',
-    source = 'always',
-    style = 'minimal',
-    header = '',
-    prefix = '',
-    },
-    signs = {
-        active = signs
-    }
+	float = {
+		focusable = false,
+		border = "rounded",
+		source = "always",
+		style = "minimal",
+		header = "",
+		prefix = "",
+	},
+	signs = {
+		active = signs,
+	},
 })
-

@@ -1,5 +1,5 @@
-require('user.keymaps')
+require("user.keymaps")
 
-require('Comment').setup({
-    COMMENT_KEYMAPS
+require("Comment").setup({
+	COMMENT_KEYMAPS,
 })

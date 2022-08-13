@@ -1,5 +1,5 @@
 require("toggleterm").setup({
-    float_opts = {
-        border = 'curved'
-    }
+	float_opts = {
+		border = "curved",
+	},
 })
