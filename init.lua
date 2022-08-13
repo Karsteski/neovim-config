@@ -16,6 +16,7 @@ require('user.plugins.telescope')
 require('user.plugins.nvim-notify')
 require('user.plugins.gitsigns')
 require('user.plugins.project')
+require('user.plugins.comment')
 
  -- LSP and Completion
 require('user.plugins.lsp.lspconfig')

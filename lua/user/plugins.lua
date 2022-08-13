@@ -101,9 +101,7 @@ return packer.startup(function(use)
     use "rcarriga/nvim-notify"
     use "lewis6991/gitsigns.nvim"
     use "ahmedkhalf/project.nvim"
-
-
-
+    use { 'numToStr/Comment.nvim'}
 
     -- Colour schemes
     use 'shaunsingh/solarized.nvim'

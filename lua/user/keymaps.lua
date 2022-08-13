@@ -274,5 +274,37 @@ vim.keymap.set("n", "fn", telescope_notify, options)
 keymap("n", "bl", ":Gitsigns blame_line <CR>", options)
 
 -- Projects.nvim: Telescope Integration keymap
-
 keymap("n", "fp", ":Telescope projects <CR>", options)
+
+-- Comment.nvim keybinds
+COMMENT_KEYMAPS = {
+ ---LHS of toggle mappings in NORMAL mode
+    ---@type table
+    toggler = {
+        ---Line-comment toggle keymap
+        line = 'gcc',
+        ---Block-comment toggle keymap
+        block = 'gbc',
+    },
+
+    ---LHS of operator-pending mappings in NORMAL mode
+    ---LHS of mapping in VISUAL mode
+    ---@type table
+    opleader = {
+        ---Line-comment keymap
+        line = 'gc',
+        ---Block-comment keymap
+        block = 'gb',
+    },
+
+    ---LHS of extra mappings
+    ---@type table
+    extra = {
+        ---Add comment on the line above
+        above = 'gcO',
+        ---Add comment on the line below
+        below = 'gco',
+        ---Add comment at the end of line
+        eol = 'gcA',
+    },
+}
