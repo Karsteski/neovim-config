@@ -58,7 +58,7 @@ keymap("v", "<A-j>", ":m .+1<CR>==", options)
 keymap("v", "<A-k>", ":m .-2<CR>==", options)
 
 -- Hold onto the current "paste" text within the clipboard
-keymap("v", "p", '"_dP', options) 
+keymap("v", "p", '"_dP', options)
 
 --------------------------- Visual Block ----------------------------
 -- Move text up and down
@@ -151,10 +151,8 @@ COMPLETION_MAPPINGS = cmp.mapping.preset.insert({
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current 
 ON_ATTACH = function(client, bufnr)
-
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    --
     local bufmap = function(mode, lhs, rhs)
       local lsp_opts = {buffer = true}
       vim.keymap.set(mode, lhs, rhs, lsp_opts)

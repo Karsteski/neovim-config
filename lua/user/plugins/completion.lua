@@ -47,7 +47,17 @@ local kind_icons = {
     TypeParameter = "",
 }
 
+local snip_status_ok, luasnip = pcall(require, "luasnip")
+if not snip_status_ok then
+  return
+end
+
 cmp.setup({
+    snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
     sources = {
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
@@ -61,7 +71,6 @@ cmp.setup({
         format = function(entry, vim_item)
             -- Kind icons
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[Neovim Lua]",

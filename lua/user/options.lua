@@ -3,8 +3,8 @@
 vim.opt.shortmess:append "c"                    -- Interprets "word-word" as a single word
 
 local options = {
-    backup = false,                          -- creates a backup file
     clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
+    backup = false,                          -- creates a backup file
     cmdheight = 2,                           -- more space in the neovim command line for displaying messages
     completeopt = {"menu", "menuone", "noselect" }, -- mostly just for cmp
     conceallevel = 0,                        -- so that `` is visible in markdown files
@@ -30,13 +30,13 @@ local options = {
     tabstop = 4,                             -- insert 2 spaces for a tab
     cursorline = true,                       -- highlight the current line
     number = true,                           -- set numbered lines
-    relativenumber = true,                  -- set relative numbered lines
+    relativenumber = true,                   -- set relative numbered lines
     numberwidth = 4,                         -- set number column width to 2 {default 4}
     signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-    wrap = true,                            -- display lines as one long line
+    wrap = true,                             -- display lines as one long line
     scrolloff = 8,                           -- is one of my fav
     sidescrolloff = 8,
-guifont = "monospace:h17",               -- the font used in graphical neovim applications
+    guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
 for key, value in pairs(options) do
@@ -47,15 +47,34 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 
--- Completion and diagnostic
+-- Completion and iagnostics
+local signs = {
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
+    { name = "DiagnosticSignInfo", text = "" }
+}
+
+for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
 vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
+  update_in_insert = true,
+  underline = true,
+
   float = {
+    focusable = false,
     border = 'rounded',
     source = 'always',
+    style = 'minimal',
     header = '',
     prefix = '',
-  },
+    },
+    signs = {
+        active = signs
+    }
 })
 
