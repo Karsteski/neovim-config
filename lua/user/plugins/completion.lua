@@ -1,5 +1,6 @@
 -- For global variable ON_ATTACH
 require('user.keymaps')
+require("luasnip/loaders/from_vscode").lazy_load()
 
 local cmp_status_ok, cmp = pcall(require, 'cmp')
 if not cmp_status_ok then
