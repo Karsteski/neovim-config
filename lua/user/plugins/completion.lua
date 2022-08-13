@@ -24,7 +24,6 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
     lsp_defaults
 )
 
-
 lspconfig['clangd'].setup({
     single_file_support = true,
     on_attach = lsp_defaults.on_attach,
@@ -60,6 +59,18 @@ lspconfig['sumneko_lua'].setup({
     },
 })
 
+-- Dianostic windows with borders -----------------------------------------
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {border = 'rounded'}
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {border = 'rounded'}
+)
+
+-- And finally, the completion setup --------------------------------------
 local kind_icons = {
     Text = "",
     Method = "m",
@@ -88,73 +99,13 @@ local kind_icons = {
     TypeParameter = "",
 }
 
--- Auxillary function
-local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
--- Dianostic windows with borders -----------------------------------------
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  {border = 'rounded'}
-)
-
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-  vim.lsp.handlers.signature_help,
-  {border = 'rounded'}
-)
-
--- And finally, the completion setup --------------------------------------
 cmp.setup({
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
         { name = 'buffer' },
     },
-    window = {
-        documentation = {
-            cmp.config.window.bordered(),
-            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-        }
-    },
-    mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-        ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-        ["<C-e>"] = cmp.mapping {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        },
-        -- Accept currently selected item. If none selected, `select` first item.
-        -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm { select = true },
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif check_backspace() then
-                fallback()
-            else
-                fallback()
-            end
-        end, {
-            "i",
-            "s",
-        }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end, {
-            "i",
-            "s",
-        }),
-    }),
+    mapping = COMPLETION_MAPPINGS,
     formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)

@@ -77,16 +77,64 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", terminal_options)
 
 
 -- LspConfig -------------------------------------
-
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<leader>f', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>v', vim.diagnostic.setloclist, opts)
-
 vim.keymap.set('n', '<leader>y',vim.lsp.buf.formatting, opts)
 
+
+-- Completion and diagnostic keybindings
+local cmp_status_ok, cmp = pcall(require, 'cmp')
+if not cmp_status_ok then
+    return
+end
+
+-- Auxillary function
+local check_backspace = function()
+    local col = vim.fn.col "." - 1
+    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+
+CMP_MAPPINGS = cmp.mapping.preset.insert({
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+        ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+        ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ["<C-e>"] = cmp.mapping {
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+        },
+        -- Accept currently selected item. If none selected, `select` first item.
+        -- Set `select` to `false` to only confirm explicitly selected items.
+        ["<CR>"] = cmp.mapping.confirm { select = true },
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif check_backspace() then
+                fallback()
+            else
+                fallback()
+            end
+        end, {
+            "i",
+            "s",
+        }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end, {
+            "i",
+            "s"
+        }),
+    })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current 
