@@ -18,8 +18,8 @@ require('user.plugins.gitsigns')
 require('user.plugins.project')
 
  -- LSP and Completion
-require('user.plugins.lspconfig')
-require('user.plugins.null-ls')
-require('user.plugins.mason')
+require('user.plugins.lsp.lspconfig')
+require('user.plugins.lsp.null-ls')
+require('user.plugins.lsp.mason')
 require('user.plugins.completion')
 
