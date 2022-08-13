@@ -59,10 +59,15 @@ return packer.startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
 
-    use 'hrsh7th/cmp-nvim-lsp',
-    use 'hrsh7th/nvim-cmp',
-    use 'hrsh7th/cmp-buffer',
-    use 'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/nvim-cmp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        "hrsh7th/cmp-nvim-lua",
+
+        -- Snippets!
+        "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets"
     }
 
     use {
