@@ -98,7 +98,7 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-CMP_MAPPINGS = cmp.mapping.preset.insert({
+COMPLETION_MAPPINGS = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -135,6 +135,9 @@ CMP_MAPPINGS = cmp.mapping.preset.insert({
             "s"
         }),
     })
+
+
+
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current 
