@@ -102,6 +102,16 @@ return packer.startup(function(use)
 	use("ahmedkhalf/project.nvim")
 	use({ "numToStr/Comment.nvim" })
 
+	-- Markdown Preview installation
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
+
 	-- Colour schemes
 	use("shaunsingh/solarized.nvim")
 	use("edeneast/nightfox.nvim")
