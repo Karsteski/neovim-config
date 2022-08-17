@@ -41,6 +41,7 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
+
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -56,7 +57,7 @@ return packer.startup(function(use)
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig",
 
 		"hrsh7th/cmp-nvim-lsp",
@@ -97,11 +98,12 @@ return packer.startup(function(use)
 	})
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
-	use("windwp/nvim-autopairs")
-	use("rcarriga/nvim-notify")
-	use("lewis6991/gitsigns.nvim")
-	use("ahmedkhalf/project.nvim")
+	use({ "windwp/nvim-autopairs" })
+	use({ "rcarriga/nvim-notify" })
+	use({ "lewis6991/gitsigns.nvim" })
+	use({ "ahmedkhalf/project.nvim" })
 	use({ "numToStr/Comment.nvim" })
+	use({ "ethanholz/nvim-lastplace" })
 
 	-- Markdown Preview installation
 	use({
