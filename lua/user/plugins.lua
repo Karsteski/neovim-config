@@ -56,6 +56,7 @@ return packer.startup(function(use)
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig",
 
 		"hrsh7th/cmp-nvim-lsp",
