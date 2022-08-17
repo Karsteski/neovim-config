@@ -176,7 +176,7 @@ ON_ATTACH = function(client, bufnr)
 	keymap("x", "<F4>", vim.lsp.buf.range_code_action, options)
 
 	-- Show diagnostics in a floating window
-	keymap("n", "gl", vim.diagnostic.open_float, options)
+
 
 	-- Move to the previous diagnostic
 	keymap("n", "[d", vim.diagnostic.goto_prev, options)
@@ -252,6 +252,8 @@ keymap("n", "ff", ":Telescope find_files <CR>", options)
 keymap("n", "fg", ":Telescope live_grep <CR>", options)
 keymap("n", "fb", ":Telescope buffers <CR>", options)
 keymap("n", "fh", ":Telescope help_tags <CR>", options)
+keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>", options)
+keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>", options)
 
 -- Use nvim-notify to search the notification history
 local function telescope_notify()
