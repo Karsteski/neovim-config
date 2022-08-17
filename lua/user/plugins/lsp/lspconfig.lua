@@ -54,11 +54,11 @@ lspconfig["sumneko_lua"].setup({
 	},
 })
 
-require("lspconfig")["pyright"].setup({
-	on_attach = ON_ATTACH,
-	flags = lsp_flags,
-})
-require("lspconfig")["clangd"].setup({
-	on_attach = ON_ATTACH,
-	flags = lsp_flags,
-})
+require('lspconfig')['pyright'].setup{
+    on_attach = ON_ATTACH,
+    flags = lsp_flags,
+}
+require('lspconfig')['clangd'].setup{
+    on_attach = ON_ATTACH,
+    flags = lsp_flags,
+}
