@@ -1,9 +1,8 @@
 -- Note the initial lua folder is implied, as well as .lua
+require("user.plugins")
 require("user.colourschemes")
-
 require("user.options")
 require("user.keymaps")
-require("user.plugins")
 
 -- Plugin Configurations
 require("user.plugins.bufferline")
@@ -25,3 +24,6 @@ require("user.plugins.lsp.null-ls")
 require("user.plugins.lsp.mason")
 require("user.plugins.completion")
 require("user.plugins.lsp.mason-tool-installer")
+
+-- Debugging
+require("user.plugins.debugging.nvim-dap")

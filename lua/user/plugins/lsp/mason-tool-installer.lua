@@ -20,5 +20,6 @@ require("mason-tool-installer").setup({
         "flake8",
 
         -- Debuggers
+        "codelldb",
 	},
 })

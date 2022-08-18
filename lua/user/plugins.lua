@@ -41,7 +41,6 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer can manage itself
 
-
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -70,6 +69,11 @@ return packer.startup(function(use)
 		-- Snippets!
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
+	})
+
+	-- Debugging
+	use({
+		"mfussenegger/nvim-dap",
 	})
 
 	use({
