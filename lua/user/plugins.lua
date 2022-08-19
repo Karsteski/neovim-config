@@ -72,9 +72,9 @@ return packer.startup(function(use)
 	})
 
 	-- Debugging
-	use({
+	use({ "rcarriga/nvim-dap-ui", requires = {
 		"mfussenegger/nvim-dap",
-	})
+	} })
 
 	use({
 		"kyazdani42/nvim-tree.lua",
