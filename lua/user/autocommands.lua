@@ -8,5 +8,9 @@ autocommand({ "TextYankPost" }, {
 })
 
 -- automatically load breakpoints when a file is loaded into the buffer.
-autocommand({ "BufReadPost" }, { callback = require("persistent-breakpoints.api").load_breakpoints })
+local status_ok, pb_api = pcall(require, "persistent-breakpoints.api")
+if not status_ok then
+	return
+end
 
+autocommand({ "BufReadPost" }, { callback = pb_api.load_breakpoints })

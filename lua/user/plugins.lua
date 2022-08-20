@@ -74,11 +74,10 @@ return packer.startup(function(use)
 	-- Debugging
 	use({ "rcarriga/nvim-dap-ui", requires = {
 		"mfussenegger/nvim-dap",
-    }
-    })
+	} })
 	use("nvim-telescope/telescope-dap.nvim")
 	use("Weissle/persistent-breakpoints.nvim")
-    use("theHamsta/nvim-dap-virtual-text")
+	use("theHamsta/nvim-dap-virtual-text")
 
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -87,9 +86,7 @@ return packer.startup(function(use)
 		},
 	})
 
-	use({ "nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
 	use({
 		"jose-elias-alvarez/null-ls.nvim",

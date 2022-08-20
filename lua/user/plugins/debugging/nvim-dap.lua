@@ -1,4 +1,7 @@
-local dap = require("dap")
+local status_ok, dap = pcall(require, "dap")
+if not status_ok then
+	return
+end
 
 require("telescope").load_extension("dap")
 require("persistent-breakpoints").setup({}) -- use default config
@@ -31,5 +34,13 @@ dap.configurations.cpp = {
 }
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "LspDiagnosticsSignHint", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "", texthl = "LspDiagnosticsSignInformation", linehl = "DiagnosticUnderlineInfo", numhl = "LspDiagnosticsSignInformation" })
+vim.fn.sign_define(
+	"DapBreakpointRejected",
+	{ text = "", texthl = "LspDiagnosticsSignHint", linehl = "", numhl = "" }
+)
+vim.fn.sign_define("DapStopped", {
+	text = "",
+	texthl = "LspDiagnosticsSignInformation",
+	linehl = "DiagnosticUnderlineInfo",
+	numhl = "LspDiagnosticsSignInformation",
+})

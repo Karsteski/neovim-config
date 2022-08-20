@@ -1,6 +1,11 @@
 local create_command = vim.api.nvim_create_user_command
 
-local terminal = require("toggleterm.terminal").Terminal
+local status_ok, toggleterm = pcall(require, "toggleterm")
+if not status_ok then
+	return
+end
+
+local terminal = toggleterm.Terminal
 
 create_command("MesonCompile", function()
 	terminal
@@ -11,7 +16,7 @@ create_command("MesonCompile", function()
 			cmd = "meson compile -C builddir",
 		})
 		:toggle()
-end, { })
+end, {})
 
 create_command("Lazygit", function()
 	terminal
@@ -22,4 +27,4 @@ create_command("Lazygit", function()
 			cmd = "lazygit",
 		})
 		:toggle()
-end, { })
+end, {})

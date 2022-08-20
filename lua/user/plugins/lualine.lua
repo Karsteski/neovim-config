@@ -6,7 +6,13 @@ if not status_ok then
 end
 
 -- For debug status
-local debug_status = require("dap").status()
+local dap_status_ok, dap = pcall(require, "dap")
+if not dap_status_ok then
+	return
+end
+
+local debug_status = dap.status()
+
 lualine.setup({
 	lualine_c = { "filename", debug_status },
 })

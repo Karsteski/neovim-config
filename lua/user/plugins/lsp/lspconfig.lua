@@ -28,7 +28,7 @@ lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.defa
 
 local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not mason_lspconfig_status_ok then
-    return
+	return
 end
 
 for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
