@@ -3,6 +3,7 @@ require("user.plugins")
 require("user.colourschemes")
 require("user.options")
 require("user.keymaps")
+require("user.autocommands")
 
 -- Plugin Configurations
 require("user.plugins.bufferline")
