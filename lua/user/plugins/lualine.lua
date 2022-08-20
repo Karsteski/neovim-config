@@ -5,4 +5,8 @@ if not status_ok then
 	return
 end
 
-lualine.setup()
+-- For debug status
+local debug_status = require("dap").status()
+lualine.setup({
+	lualine_c = { "filename", debug_status },
+})

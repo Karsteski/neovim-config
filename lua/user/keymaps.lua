@@ -169,14 +169,13 @@ ON_ATTACH = function(client, bufnr)
 	keymap("n", "<C-k>", vim.lsp.buf.signature_help, options)
 
 	-- Renames all references to the symbol under the cursor
-	keymap("n", "<F2>", vim.lsp.buf.rename, options)
+	keymap("n", "<leader>rn", vim.lsp.buf.rename, options)
 
 	-- Selects a code action available at the current cursor position
-	keymap("n", "<F4>", vim.lsp.buf.code_action, options)
-	keymap("x", "<F4>", vim.lsp.buf.range_code_action, options)
+	keymap("n", "<leader>ca", vim.lsp.buf.code_action, options)
+	-- keymap("x", "<F4>", vim.lsp.buf.range_code_action, options)
 
 	-- Show diagnostics in a floating window
-
 
 	-- Move to the previous diagnostic
 	keymap("n", "[d", vim.diagnostic.goto_prev, options)
@@ -307,47 +306,27 @@ keymap("n", "mdp", ":MarkdownPreviewToggle <CR>", options)
 -- Debugging keymaps
 local dapui = require("dapui")
 local dap = require("dap")
-keymap('n', '<F5>', dapui.toggle, options)
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open("tray")
+	dapui.open("tray")
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close("tray")
+	dapui.close("tray")
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close("sidebar")
+	dapui.close("sidebar")
 end
 
-local map = function(mode, lhs, rhs)
-    vim.api.nvim_set_keymap(mode, lhs, rhs, {noremap = true, silent = true})
-end
+keymap("n", "<leader>di", dapui.toggle, options)
+keymap("n", "<F5>", dap.continue, options)
+keymap("n", "<leader>dex", dap.terminate, options)
 
-map( "n", "<F4>", ":lua require('dapui').toggle()<CR>" )
-map( "n", "<F5>", ":lua require('dap').toggle_breakpoint()<CR>" )
-map( "n", "<F9>", ":lua require('dap').continue()<CR>" )
+keymap("n", "<leader>dsc", dap.continue, options)
+keymap("n", "<leader>dsu", dap.step_over, options)
+keymap("n", "<leader>dsi", dap.step_into, options)
+keymap("n", "<leader>dso", dap.step_out, options)
 
-map( "n", "<F1>", ":lua require('dap').step_over()<CR>" )
-map( "n", "<F2>", ":lua require('dap').step_into()<CR>" )
-map( "n", "<F3>", ":lua require('dap').step_out()<CR>" )
+keymap("n", "<leader>dro", dap.repl.open, options)
+keymap("n", "<leader>dbt", dap.toggle_breakpoint, options)
 
-map( "n", "<Leader>dsc", ":lua require('dap').continue()<CR>" )
-map( "n", "<Leader>dsv", ":lua require('dap').step_over()<CR>" )
-map( "n", "<Leader>dsi", ":lua require('dap').step_into()<CR>" )
-map( "n", "<Leader>dso", ":lua require('dap').step_out()<CR>" )
-
-map( "n", "<Leader>dhh", ":lua require('dap.ui.variables').hover()<CR>" )
-map( "v", "<Leader>dhv", ":lua require('dap.ui.variables').visual_hover()<CR>" )
-
-map( "n", "<Leader>duh", ":lua require('dap.ui.widgets').hover()<CR>" )
-map( "n", "<Leader>duf", ":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>" )
-
-map( "n", "<Leader>dro", ":lua require('dap').repl.open()<CR>" )
-map( "n", "<Leader>drl", ":lua require('dap').repl.run_last()<CR>" )
-
-map( "n", "<Leader>dbc", ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>" )
-map( "n", "<Leader>dbm", ":lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>" )
-map( "n", "<Leader>dbt", ":lua require('dap').toggle_breakpoint()<CR>" )
-
-map( "n", "<Leader>dc", ":lua require('dap.ui.variables').scopes()<CR>" )
-map( "n", "<Leader>di", ":lua require('dapui').toggle()<CR>" )
+keymap("n", "<leader>de", dapui.eval, options)

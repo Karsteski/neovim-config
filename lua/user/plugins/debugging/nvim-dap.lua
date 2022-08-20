@@ -1,4 +1,5 @@
 local dap = require("dap")
+require('telescope').load_extension('dap')
 
 dap.adapters.codelldb = {
 	type = "server",
