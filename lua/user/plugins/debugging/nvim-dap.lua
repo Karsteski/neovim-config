@@ -1,5 +1,7 @@
 local dap = require("dap")
+
 require('telescope').load_extension('dap')
+require('persistent-breakpoints').setup{} -- use default config
 
 dap.adapters.codelldb = {
 	type = "server",

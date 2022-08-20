@@ -307,6 +307,10 @@ keymap("n", "mdp", ":MarkdownPreviewToggle <CR>", options)
 local dapui = require("dapui")
 local dap = require("dap")
 
+-- automatically load breakpoints when a file is loaded into the buffer.
+vim.api.nvim_create_autocmd({ "BufReadPost" }, { callback = require("persistent-breakpoints.api").load_breakpoints })
+local pb = require("persistent-breakpoints.api")
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open("tray")
 end
@@ -316,6 +320,9 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close("sidebar")
 end
+
+keymap("n", "<leader>dbt", pb.toggle_breakpoint, options)
+keymap("n", "<leader>drm", pb.clear_all_breakpoints, options)
 
 keymap("n", "<leader>di", dapui.toggle, options)
 keymap("n", "<F5>", dap.continue, options)
@@ -327,6 +334,6 @@ keymap("n", "<leader>dsi", dap.step_into, options)
 keymap("n", "<leader>dso", dap.step_out, options)
 
 keymap("n", "<leader>dro", dap.repl.open, options)
-keymap("n", "<leader>dbt", dap.toggle_breakpoint, options)
-
 keymap("n", "<leader>de", dapui.eval, options)
+
+keymap("n", "<leader>dtf", ":Telescope dap frames", options) -- :)
