@@ -2,8 +2,9 @@
 require("user.plugins")
 require("user.colourschemes")
 require("user.options")
-require("user.keymaps")
 require("user.autocommands")
+require("user.user_commands")
+require("user.keymaps")
 
 -- Plugin Configurations
 require("user.plugins.bufferline")

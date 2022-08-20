@@ -408,3 +408,7 @@ keymap("n", "<leader>dro", dap.repl.open, options)
 keymap("n", "<leader>de", dapui.eval, options)
 
 keymap("n", "<leader>dtf", ":Telescope dap frames", options) -- :)
+
+-- User Commands -------------------------------------------------------
+
+keymap("n", "<F7>", ":MesonCompile <CR>", options)

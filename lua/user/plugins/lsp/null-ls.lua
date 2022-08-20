@@ -5,7 +5,7 @@ require("null-ls").setup({
 		require("null-ls").builtins.formatting.prettierd,
 		require("null-ls").builtins.formatting.markdownlint,
 
-		require("null-ls").builtins.diagnostics.eslint,
+		require("null-ls").builtins.diagnostics.eslint_d,
 		require("null-ls").builtins.diagnostics.flake8,
 
 		require("null-ls").builtins.diagnostics.markdownlint.with({
