@@ -78,6 +78,7 @@ return packer.startup(function(use)
     })
 	use("nvim-telescope/telescope-dap.nvim")
 	use("Weissle/persistent-breakpoints.nvim")
+    use("theHamsta/nvim-dap-virtual-text")
 
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -86,8 +87,7 @@ return packer.startup(function(use)
 		},
 	})
 
-	use({
-		"nvim-treesitter/nvim-treesitter",
+	use({ "nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
 
