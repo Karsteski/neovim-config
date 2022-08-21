@@ -1,11 +1,11 @@
 local create_command = vim.api.nvim_create_user_command
 
-local status_ok, toggleterm = pcall(require, "toggleterm")
+local status_ok, toggleterm_terminal = pcall(require, "toggleterm.terminal")
 if not status_ok then
 	return
 end
 
-local terminal = toggleterm.Terminal
+local terminal = toggleterm_terminal.Terminal
 
 create_command("MesonCompile", function()
 	terminal

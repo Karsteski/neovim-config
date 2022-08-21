@@ -14,5 +14,5 @@ end
 local debug_status = dap.status()
 
 lualine.setup({
-	lualine_c = { "filename", debug_status },
+	-- lualine_c = { "filename", debug_status },
 })

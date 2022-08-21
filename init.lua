@@ -32,3 +32,6 @@ require("user.plugins.lsp.mason-tool-installer")
 require("user.plugins.debugging.nvim-dap")
 require("user.plugins.debugging.nvim-dap-ui")
 require("user.plugins.debugging.nvim-dap-virtual-text")
+
+-- Neovide
+require("user.neovide")
