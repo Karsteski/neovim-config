@@ -19,6 +19,7 @@ require("user.plugins.gitsigns")
 require("user.plugins.project")
 require("user.plugins.comment")
 require("user.plugins.nvim-lastplace")
+require("user.plugins.godbolt")
 
 -- LSP and Completion
 require("user.plugins.lsp.lspconfig")

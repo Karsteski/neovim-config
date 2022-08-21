@@ -108,6 +108,7 @@ return packer.startup(function(use)
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "numToStr/Comment.nvim" })
 	use({ "ethanholz/nvim-lastplace" })
+    use({"p00f/godbolt.nvim"})                                          -- Display assembly for current buffer or visual selection (Godbolt.org)
 
 	-- Markdown Preview installation
 	use({
