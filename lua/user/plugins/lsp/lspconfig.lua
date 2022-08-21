@@ -31,14 +31,14 @@ if not mason_lspconfig_status_ok then
 	return
 end
 
+-- Fix for clangd offset_encodings issue
+local clangd_capabilities = vim.lsp.protocol.make_client_capabilities()
+clangd_capabilities.offsetEncoding = { "utf-16" }
+
 for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 	if server == "sumneko_lua" then
 		lspconfig[server].setup({
-			-- Must call the on_attach in default_config as these options override the global config
-			on_attach = lsp_defaults.on_attach,
-			flags = lsp_flags,
 			settings = {
-				lsp_defaults,
 				Lua = {
 					runtime = {
 						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -59,13 +59,13 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 				},
 			},
 		})
+	elseif server == "clangd" then
+		lspconfig[server].setup({
+			capabilities = clangd_capabilities,
+		})
 	else
 		lspconfig[server].setup({
 			single_file_support = true,
-			on_attach = lsp_defaults.on_attach,
-			settings = {
-				lsp_defaults,
-			},
 		})
 	end
 end
