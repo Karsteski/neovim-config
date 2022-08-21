@@ -3,11 +3,8 @@ require("nightfox").setup({
 	options = {
 		dim_inactive = true, -- Non focused panes set to alternative background
 		transparent = true,
+        terminal_colors = true,
 	},
 })
 
-vim.cmd("colorscheme nightfox")
-
--- Settings for solarized.nvim
--- vim.g.solarized_borders = true
--- require('solarized').set()
+vim.cmd("colorscheme duskfox")
