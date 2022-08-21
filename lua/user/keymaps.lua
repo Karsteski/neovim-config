@@ -384,13 +384,13 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, { callback = require("persistent-
 local pb = require("persistent-breakpoints.api")
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open("tray")
+	dapui.open({"tray"})
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close("tray")
+	dapui.close({"tray"})
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close("sidebar")
+	dapui.close({"sidebar"})
 end
 
 keymap("n", "<leader>dbt", pb.toggle_breakpoint, options)
