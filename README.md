@@ -17,6 +17,8 @@
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)                       -- Git decorations for Neovim
 - [project.nvim](https://github.com/ahmedkhalf/project.nvim)                        -- Neovim project management
 - [Godbolt.nvim](https://github.com/p00f/godbolt.nvim)                              -- Display assembly for the current buffer or visual selection
+- [Alpha.nvim](https://github.com/goolord/alpha-nvim)                               -- Neovim Greeter
+- [Neovim Session Manager](https://github.com/Shatur/neovim-session-manager)        -- Manage sessions in Neovim 
 
 ### LSP and Completion
 

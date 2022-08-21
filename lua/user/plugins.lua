@@ -101,6 +101,13 @@ return packer.startup(function(use)
 		},
 	})
 
+	use({
+		"goolord/alpha-nvim",
+		config = function()
+			require("alpha").setup(require("alpha.themes.dashboard").config)
+		end,
+	})
+
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 	use({ "windwp/nvim-autopairs" })
 	use({ "rcarriga/nvim-notify" })
@@ -108,7 +115,8 @@ return packer.startup(function(use)
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "numToStr/Comment.nvim" })
 	use({ "ethanholz/nvim-lastplace" })
-    use({"p00f/godbolt.nvim"})                                          -- Display assembly for current buffer or visual selection (Godbolt.org)
+	use({ "p00f/godbolt.nvim" }) -- Display assembly for current buffer or visual selection (Godbolt.org)
+	use({ "https://github.com/Shatur/neovim-session-manager" })
 
 	-- Markdown Preview installation
 	use({
