@@ -23,6 +23,10 @@ keymap("n", "<C-j>", "<C-w>j", options)
 keymap("n", "<C-k>", "<C-w>k", options)
 keymap("n", "<C-l>", "<C-w>l", options)
 
+-- Better forward and back
+keymap("n", "<A-Left>", "<C-o>") -- Back
+keymap("n", "<A-Right>", "<C-i>") -- Forward
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", options)
 keymap("n", "<C-Down>", ":resize -2<CR>", options)
@@ -67,7 +71,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", options)
 
 -- Terminal --------------------------------------
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", options)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", options)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", options)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", options)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", options)
@@ -414,3 +418,4 @@ keymap("n", "<leader>dtf", ":Telescope dap frames", options) -- :)
 -- User Commands -------------------------------------------------------
 
 keymap("n", "<F7>", ":MesonCompile <CR>", options)
+keymap("n", "<C-F5>", ":3TermExec cmd='./oglre' dir='builddir/' <CR>", options)
