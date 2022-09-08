@@ -2,7 +2,7 @@
 
 ![Neovim Screenshot](resources/nvim-screenshot.png)
 
-## Plugin's
+## Plugins
 
 ### General
 
