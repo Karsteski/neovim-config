@@ -117,6 +117,7 @@ return packer.startup(function(use)
 	use({ "ethanholz/nvim-lastplace" })
 	use({ "p00f/godbolt.nvim" }) -- Display assembly for current buffer or visual selection (Godbolt.org)
 	use({ "Shatur/neovim-session-manager" })
+	use({ "famiu/bufdelete.nvim" })
 
 	-- Markdown Preview installation
 	use({

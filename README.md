@@ -26,6 +26,7 @@
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs)                                -- Automatic pairing for brackets
 - [Comment.nvim](https://github.com/numToStr/Comment.nvim)                                  -- Powerful commenting plugin
 - [nvim-lastplace](https://github.com/ethanholz/nvim-lastplace)                             -- Return to last place in a file
+- [bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)                                 -- Delete a buffer without deleting a split
 
 ### LSP and Completion
 

@@ -44,7 +44,7 @@ keymap("n", "<C-s>", ":w<CR>", options)
 keymap("n", "<leader><S-q>", ":q<CR>", options)
 
 -- Close buffer
-keymap("n", "<leader>q", ":bd<CR>", options)
+keymap("n", "<leader>q", ":Bdelete<CR>", options)
 
 --------------------------- Insert ----------------------------
 -- Press jk fast to enter
