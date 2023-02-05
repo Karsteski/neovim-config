@@ -108,6 +108,10 @@ return packer.startup(function(use)
 		end,
 	})
 
+    use ({
+        "habamax/vim-godot"
+    })
+
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 	use({ "windwp/nvim-autopairs" })
 	use({ "rcarriga/nvim-notify" })

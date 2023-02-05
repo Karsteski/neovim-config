@@ -13,7 +13,7 @@ end
 
 local lsp_defaults = {
 	flags = lsp_flags,
-	capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	capabilities = cmp_nvim_lsp.default_capabilities(),
 	on_attach = ON_ATTACH,
 }
 
