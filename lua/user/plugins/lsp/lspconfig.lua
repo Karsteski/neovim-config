@@ -1,6 +1,9 @@
 -- In the interest of keeping keymaps in one place.
 require("user.keymaps")
 
+-- For win bar navigation contexts
+require("user.plugins.nvim-navic")
+
 local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
@@ -11,10 +14,15 @@ if not cmp_nvim_lsp_status_ok then
 	return
 end
 
+local on_attach_functions = function(client, bufnr)
+    ON_ATTACH(client, bufnr)
+    NVIM_NAVIC(client, bufnr)
+end
+
 local lsp_defaults = {
 	flags = lsp_flags,
 	capabilities = cmp_nvim_lsp.default_capabilities(),
-	on_attach = ON_ATTACH,
+	on_attach = on_attach_functions
 }
 
 -- Extend lspconfig's global config

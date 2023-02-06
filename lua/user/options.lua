@@ -48,7 +48,7 @@ end
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 
--- Completion and iagnostics
+-- Completion and diagnostics
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -78,3 +78,9 @@ vim.diagnostic.config({
 		active = signs,
 	},
 })
+
+-- Change separator colour from default
+vim.api.nvim_set_hl(0, "NavicSeparator", {default = false, bg = "bg", fg = "#ffffff"})
+
+-- Current code context
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"

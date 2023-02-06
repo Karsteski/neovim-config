@@ -123,6 +123,9 @@ return packer.startup(function(use)
 	use({ "Shatur/neovim-session-manager" })
 	use({ "famiu/bufdelete.nvim" })
 
+    use({ "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" })
+
+
 	-- Markdown Preview installation
 	use({
 		"iamcco/markdown-preview.nvim",
