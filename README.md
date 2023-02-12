@@ -28,7 +28,7 @@
 - [nvim-lastplace](https://github.com/ethanholz/nvim-lastplace)                             -- Return to last place in a file
 - [bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)                                 -- Delete a buffer without deleting a split
 - [vim-godot](https://github.com/habamax/vim-godot)                                         -- Plugin that allows neovim integration with the Godot engine
-- [nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- [nvim-navic](https://github.com/SmiteshP/nvim-navic)                                      -- Show curent code context
 
 ### LSP and Completion
 

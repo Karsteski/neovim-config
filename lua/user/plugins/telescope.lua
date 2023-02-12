@@ -14,3 +14,6 @@ telescope.setup({
 	},
     mappings = TELESCOPE_DEFAULT_MAPPINGS
 })
+
+-- For faster Telescope sorting 
+telescope.load_extension('fzf')
