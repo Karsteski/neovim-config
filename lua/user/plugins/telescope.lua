@@ -17,3 +17,6 @@ telescope.setup({
 
 -- For faster Telescope sorting 
 telescope.load_extension('fzf')
+
+-- For line wrapping in the previewer 
+vim.cmd( [[autocmd User TelescopePreviewerLoaded setlocal wrap]] )

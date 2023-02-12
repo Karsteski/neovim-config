@@ -259,6 +259,14 @@ keymap("n", "fb", ":Telescope buffers <CR>", options)
 keymap("n", "fh", ":Telescope help_tags <CR>", options)
 keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>", options)
 
+vim.api.nvim_set_keymap("n", "fd", "", {
+    noremap = true,
+    callback = function()
+        -- Use current buffer for diagnostics
+        require("telescope.builtin").diagnostics({bufnr = 0})
+    end
+})
+
 -- Telescope default mappings
 TELESCOPE_DEFAULT_MAPPINGS = function()
 	local actions = require("telescope.actions")
