@@ -78,11 +78,10 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", options)
 
 -- LspConfig -------------------------------------
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-keymap("n", "<leader>f", vim.diagnostic.open_float, options)
+keymap("n", "<leader>d", vim.diagnostic.open_float, options)
+keymap("n", "<leader>f", vim.lsp.buf.formatting, options)
 keymap("n", "[d", vim.diagnostic.goto_prev, options)
 keymap("n", "]d", vim.diagnostic.goto_next, options)
-keymap("n", "<leader>v", vim.diagnostic.setloclist, options)
-keymap("n", "<leader>y", vim.lsp.buf.formatting, options)
 
 -- Completion and diagnostic keybindings
 local cmp_status_ok, cmp = pcall(require, "cmp")
