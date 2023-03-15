@@ -1,4 +1,5 @@
 require("user.keymaps")
+local auxiliary = require("user.auxiliary")
 
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
@@ -15,8 +16,10 @@ telescope.setup({
     mappings = TELESCOPE_DEFAULT_MAPPINGS
 })
 
--- For faster Telescope sorting 
-telescope.load_extension('fzf')
+if (auxiliary.isLinuxOS()) then
+    -- For faster Telescope sorting 
+    telescope.load_extension('fzf')
+end
 
 -- For line wrapping in the previewer 
 vim.cmd( [[autocmd User TelescopePreviewerLoaded setlocal wrap]] )

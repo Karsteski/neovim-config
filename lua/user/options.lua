@@ -1,3 +1,4 @@
+local auxiliary = require("user.auxiliary")
 -- :help options
 
 vim.opt.shortmess:append("c") -- Interprets "word-word" as a single word
@@ -79,8 +80,10 @@ vim.diagnostic.config({
 	},
 })
 
--- Change separator colour from default
-vim.api.nvim_set_hl(0, "NavicSeparator", {default = false, bg = "bg", fg = "#ffffff"})
+if (auxiliary.isNeovideGUI()) then
+    -- Change separator colour from default (nvim-navic plugin)
+    vim.api.nvim_set_hl(0, "NavicSeparator", {default = false, bg = "bg", fg = "#ffffff"})
+end
 
 -- Current code context
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
