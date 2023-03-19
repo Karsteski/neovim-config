@@ -126,6 +126,7 @@ return packer.startup(function(use)
     use({ "p00f/godbolt.nvim" }) -- Display assembly for current buffer or visual selection (Godbolt.org)
     use({ "Shatur/neovim-session-manager" })
     use({ "famiu/bufdelete.nvim" })
+    use({ "lukas-reineke/indent-blankline.nvim"})
 
     use({ "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" })
 
