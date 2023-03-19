@@ -1,3 +1,5 @@
+require("user.keymaps")
+
 local M = {}
 
 M.load_api_key = function()
@@ -5,7 +7,7 @@ M.load_api_key = function()
 end
 
 local config = {
-    ...
+    CHAT_GPT_NVIM_MAPPINGS,
 }
 
 M.setup = function()
