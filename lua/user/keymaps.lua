@@ -191,7 +191,7 @@ end
 local terminal = require("toggleterm.terminal").Terminal
 
 keymap("n", "<leader>t", ":ToggleTerm direction=horizontal <CR>", options)
-keymap("t", "<leader>t", [[<C-\><C-n> :ToggleTerm<CR>]], options)
+keymap("t", "<Esc>", [[<C-\><C-n> :ToggleTerm<CR>]], options)
 keymap("n", "<leader>g", ":Lazygit <CR>", options)
 
 -- Nvim-tree ------------------------------------------------

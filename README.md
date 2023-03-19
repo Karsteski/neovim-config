@@ -29,6 +29,7 @@
 - [bufdelete.nvim](https://github.com/famiu/bufdelete.nvim)                                 -- Delete a buffer without deleting a split
 - [vim-godot](https://github.com/habamax/vim-godot)                                         -- Plugin that allows neovim integration with the Godot engine
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic)                                      -- Show curent code context
+- [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)                                  -- OpenAI ChatGPT
 
 ### LSP and Completion
 

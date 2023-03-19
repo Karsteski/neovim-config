@@ -140,6 +140,34 @@ return packer.startup(function(use)
         ft = { "markdown" },
     })
 
+
+    -- ChatGPT.nvim -----------------------------------------------------
+    use({
+        "MunifTanjim/nui.nvim",
+        module = {"nui.layout", "nui.popup"},
+        module_pattern = {"nui.*"}
+    })
+
+    use ({
+        "jackMort/ChatGPT.nvim",
+        opt = true,
+        keys = {"<leader>gpt"},
+        module_pattern = {"chatgpt*"},
+        after = {"nui.nvim", "telescope.nvim"},
+        setup = function()
+            require("user.plugins.chatgpt").load_api_key()
+        end,
+        config = function()
+            require("user.plugins.chatgpt").setup()
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
+
+
     -- Colour schemes
     use("shaunsingh/solarized.nvim")
     use("edeneast/nightfox.nvim")
