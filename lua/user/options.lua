@@ -49,6 +49,7 @@ end
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 
+
 -- Completion and diagnostics
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
@@ -80,9 +81,18 @@ vim.diagnostic.config({
 	},
 })
 
+-- GUI Adjustments
 if (auxiliary.isNeovideGUI()) then
     -- Change separator colour from default (nvim-navic plugin)
     vim.api.nvim_set_hl(0, "NavicSeparator", {default = false, bg = "bg", fg = "#ffffff"})
+end
+
+-- Windows Adjustments
+if (auxiliary.isWindowsOS()) then
+    -- Needs bash on PATH
+    -- Those extra outer-level square brackets are necessary on Windows...
+    -- vim.o.shell = [==["C:/Program Files/Git/bin/bash.exe" -i -l]==]
+    -- vim.o.shell = vim.fn.executable"powershell"
 end
 
 -- Current code context
