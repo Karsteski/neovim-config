@@ -11,5 +11,8 @@ ts_configs.setup({
 	},
 	indent = {
 		enable = true,
+        
+        -- "Temp" fix for broken Python indentation
+        disable = {"python"}
 	},
 })

@@ -79,7 +79,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", options)
 -- LspConfig -------------------------------------
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 keymap("n", "<leader>d", vim.diagnostic.open_float, options)
-keymap("n", "<leader>f", vim.lsp.buf.formatting, options)
+-- keymap("n", "<leader>f", vim.lsp.buf.formatting, options)
 keymap("n", "[d", vim.diagnostic.goto_prev, options)
 keymap("n", "]d", vim.diagnostic.goto_next, options)
 
@@ -191,7 +191,10 @@ end
 local terminal = require("toggleterm.terminal").Terminal
 
 keymap("n", "<leader>t", ":ToggleTerm direction=horizontal <CR>", options)
-keymap("t", "<Esc>", [[<C-\><C-n> :ToggleTerm<CR>]], options)
+keymap("n", "<leader><S-t>", ":ToggleTerm direction=float <CR>", options)
+
+
+keymap("t", "<leader>t", [[<C-\><C-n> :ToggleTermToggleAll <CR>]], options)
 keymap("n", "<leader>g", ":Lazygit <CR>", options)
 
 -- Nvim-tree ------------------------------------------------
