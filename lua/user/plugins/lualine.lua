@@ -5,14 +5,15 @@ if not status_ok then
 	return
 end
 
--- For debug status
-local dap_status_ok, dap = pcall(require, "dap")
-if not dap_status_ok then
-	return
-end
-
-local debug_status = dap.status()
 
 lualine.setup({
-	-- lualine_c = { "filename", debug_status },
+    options = {
+        theme = "palenight",
+    },
+    extensions = {
+        "lazy",
+        "nvim-dap-ui",
+        "nvim-tree",
+        "toggleterm"
+    }
 })

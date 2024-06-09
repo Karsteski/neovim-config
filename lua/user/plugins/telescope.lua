@@ -18,7 +18,7 @@ telescope.setup({
 
 if (auxiliary.isLinuxOS()) then
     -- For faster Telescope sorting 
-    telescope.load_extension('fzf')
+    -- telescope.load_extension('fzf')
 end
 
 -- For line wrapping in the previewer 

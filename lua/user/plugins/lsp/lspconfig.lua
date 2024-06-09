@@ -43,8 +43,18 @@ end
 local clangd_capabilities = vim.lsp.protocol.make_client_capabilities()
 clangd_capabilities.offsetEncoding = { "utf-16" }
 
-for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
-	if server == "sumneko_lua" then
+local function concatenateTables(table_1, table_2)
+    for i = 1, #table_2 do
+        table_1[#table_1 + 1] = table_2[i]
+    end
+    return table_1
+end
+
+-- Just add the Godot server in there...
+local all_lsp_servers = concatenateTables({ "gdscript" }, mason_lspconfig.get_installed_servers())
+
+for _, server in ipairs(all_lsp_servers) do
+	if server == "lua_ls" then
 		lspconfig[server].setup({
 			settings = {
 				Lua = {
@@ -71,6 +81,10 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 		lspconfig[server].setup({
 			capabilities = clangd_capabilities,
 		})
+    elseif server == "gdscript" then
+        lspconfig[server].setup({
+            capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        })
 	else
 		lspconfig[server].setup({
 			single_file_support = true,

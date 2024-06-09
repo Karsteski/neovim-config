@@ -6,12 +6,11 @@ if not status_ok then
 end
 
 nvim_tree.setup({
+    on_attach = NVIM_TREE_MAPPINGS_ON_ATTACH,
+
 	sort_by = "case_sensitive",
 	view = {
-		adaptive_size = false,
-		mappings = {
-			list = NVIM_TREE_MAPPINGS,
-		},
+		adaptive_size = true,
 	},
 	renderer = {
 		group_empty = true,
