@@ -20,7 +20,6 @@ require("user.plugins.project")
 require("user.plugins.comment")
 require("user.plugins.nvim-lastplace")
 require("user.plugins.godbolt")
-require("user.plugins.neovim-session-manager")
 require("user.plugins.nvim-navic")
 
 -- LSP and Completion

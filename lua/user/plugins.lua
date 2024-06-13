@@ -16,7 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- Colour schemes
     {
-        "shaunsingh/solarized.nvim",
         "edeneast/nightfox.nvim",
         lazy = false, -- Definitely load these at startup
         priority = 1000, -- Load this plugin before every other start plugin
@@ -101,8 +100,6 @@ require("lazy").setup({
     "ahmedkhalf/project.nvim",
     "numToStr/Comment.nvim",
     "ethanholz/nvim-lastplace",
-    "p00f/godbolt.nvim", -- Display assembly for current buffer or visual selection (Godbolt.org)
-    "Shatur/neovim-session-manager",
     "famiu/bufdelete.nvim",
     "lukas-reineke/indent-blankline.nvim",
 
@@ -110,23 +107,4 @@ require("lazy").setup({
         "SmiteshP/nvim-navic",
         dependencies = "neovim/nvim-lspconfig"
     },
-
-    {
-        "iamcco/markdown-preview.nvim",
-        build = function()
-                    vim.fn["mkdp#util#install"]()
-                end,
-        ft = "markdown", -- Lazy load on filetype
-    },
-
-    -- ChatGPT.nvim -----------------------------------------------------
-    {
-        "jackMort/ChatGPT.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    }
 })
