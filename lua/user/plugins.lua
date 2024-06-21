@@ -45,7 +45,11 @@ require("lazy").setup({
     "saadparwaiz1/cmp_luasnip",
 
     -- Snippets!
-    "L3MON4D3/LuaSnip",
+    {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jxregexp"
+    },
     "rafamadriz/friendly-snippets",
 
     -- Debugging

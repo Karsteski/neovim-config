@@ -3,7 +3,6 @@ if not status_ok then
 	return
 end
 
---[[
 mason_tool_installer.setup({
 	ensure_installed = {
 		-- Language servers
@@ -30,4 +29,3 @@ mason_tool_installer.setup({
 		"codelldb",
 	},
 })
-]]
