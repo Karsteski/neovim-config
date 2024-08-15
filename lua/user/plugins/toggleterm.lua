@@ -3,8 +3,10 @@ if not status_ok then
 	return
 end
 
-toggleterm.setup({
-	float_opts = {
-		border = "curved",
-	},
-})
+if not vim.g.vscode then
+	toggleterm.setup({
+		float_opts = {
+			border = "curved",
+		},
+	})
+end

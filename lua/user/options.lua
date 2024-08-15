@@ -38,7 +38,7 @@ local options = {
     wrap = true,                             -- display lines as one long line
     scrolloff = 8,                           -- is one of my fav
     sidescrolloff = 8,
-    guifont = "Hack Nerd Font",               -- the font used in graphical neovim applications
+    guifont = "Hack Nerd Font Mono",               -- the font used in graphical neovim applications
 }
 
 for key, value in pairs(options) do
