@@ -186,11 +186,11 @@ ON_ATTACH = function(client, bufnr)
 end
 
 -- Toggleterm ----------------------------------------------
-keymap("n", "<leader>t", ":ToggleTerm direction=horizontal <CR>", options)
-keymap("n", "<leader><S-t>", ":ToggleTerm direction=float <CR>", options)
+keymap("n", "<C-t>", ":ToggleTerm direction=horizontal <CR>", options)
+keymap("n", "<A-t>", ":ToggleTerm direction=float <CR>", options)
 
 
-keymap("t", "<leader>t", [[<C-\><C-n> :ToggleTermToggleAll <CR>]], options)
+keymap("t", "<C-t>", [[<C-\><C-n> :ToggleTermToggleAll <CR>]], options)
 keymap("n", "<leader>g", ":Lazygit <CR>", options)
 
 -- Nvim-tree ------------------------------------------------
