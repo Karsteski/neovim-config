@@ -17,6 +17,7 @@ null_ls.setup({
 			extra_args = { "--disable MD013" }, -- Disable line_length checking
 		}),
 
-		null_ls.builtins.completion.spell,
+        -- This spell completion is very annoying. Disabled until I find something more usable
+        -- null_ls.builtins.completion.spell,
 	},
 })
