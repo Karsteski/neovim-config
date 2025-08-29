@@ -87,7 +87,7 @@ for _, server in ipairs(all_lsp_servers) do
         })
 	else
 		lspconfig[server].setup({
-			single_file_support = true,
+            single_file_support = true,
 		})
 	end
 end

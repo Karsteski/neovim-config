@@ -13,6 +13,7 @@ mason_tool_installer.setup({
 		"cmake-language-server",
 		"typescript-language-server",
 		"marksman",
+        "glsl_analyzer",
 
 		-- Formatters
 		"stylua",

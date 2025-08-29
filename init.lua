@@ -24,7 +24,7 @@ require("user.plugins.nvim-navic")
 
 -- LSP and Completion
 require("user.plugins.lsp.lspconfig")
-require("user.plugins.lsp.null-ls")
+require("user.plugins.lsp.none-ls")
 require("user.plugins.lsp.mason")
 require("user.plugins.completion")
 require("user.plugins.lsp.mason-tool-installer")
