@@ -14,6 +14,7 @@ mason_tool_installer.setup({
 		"typescript-language-server",
 		"marksman",
         "glsl_analyzer",
+        "mesonlsp",
 
 		-- Formatters
 		"stylua",

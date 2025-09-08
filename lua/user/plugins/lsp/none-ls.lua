@@ -16,8 +16,5 @@ none_ls.setup({
 		none_ls.builtins.diagnostics.markdownlint.with({
 			extra_args = { "--disable MD013" }, -- Disable line_length checking
 		}),
-
-        -- This spell completion is very annoying. Disabled until I find something more usable
-        -- null_ls.builtins.completion.spell,
 	},
 })

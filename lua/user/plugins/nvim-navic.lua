@@ -1,12 +1,8 @@
 local nvim_navic = require("nvim-navic")
 
 nvim_navic.setup({
+    lsp = { 
+        auto_attach = true,
+    },
     highlight = true
 })
-
-NVIM_NAVIC = function(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-        nvim_navic.attach(client, bufnr)
-    end
-end
-

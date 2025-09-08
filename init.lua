@@ -19,13 +19,14 @@ require("user.plugins.gitsigns")
 require("user.plugins.project")
 require("user.plugins.comment")
 require("user.plugins.nvim-lastplace")
-require("user.plugins.godbolt")
 require("user.plugins.nvim-navic")
 
 -- LSP and Completion
 require("user.plugins.lsp.lspconfig")
 require("user.plugins.lsp.none-ls")
 require("user.plugins.lsp.mason")
+require("user.plugins.lsp.mason-lspconfig")
+
 require("user.plugins.completion")
 require("user.plugins.lsp.mason-tool-installer")
 
