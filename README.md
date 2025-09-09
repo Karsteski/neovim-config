@@ -18,7 +18,6 @@
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)                                    -- Notification manager
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)                               -- Git decorations for Neovim
 - [project.nvim](https://github.com/ahmedkhalf/project.nvim)                                -- Neovim project management
-- [Godbolt.nvim](https://github.com/p00f/godbolt.nvim)                                      -- Display assembly for the current buffer or visual selection
 - [Neovim Session Manager](https://github.com/Shatur/neovim-session-manager)                -- Manage sessions in Neovim 
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)                                            -- Snippet Engine
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)                      -- Snippets collection
@@ -29,7 +28,6 @@
 - [vim-godot](https://github.com/habamax/vim-godot)                                         -- Plugin that allows neovim integration with the Godot engine
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic)                                      -- Show curent code context
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)           -- Adds indentation guides to all lines
-- [ChatGPT.nvim](https://github.com/jackMort/ChatGPT.nvim)                                  -- OpenAI ChatGPT
 
 ### LSP and Completion
 
@@ -37,7 +35,7 @@
 - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)              -- Bridges the mason.nvim-lspconfig gap 
 - [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                                -- Built-in LSP configs
-- [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)                        -- LSP diagnostics, code actions and more
+- [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)                                 -- LSP diagnostics, code actions and more
 - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)                                   -- Completion source for Neovim's built-in LSP
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                                           -- Completion engine for Neovim
 - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)                                       -- Buffer completion source
