@@ -7,6 +7,8 @@ mason_tool_installer.setup({
 	ensure_installed = {
 		-- Language servers
 		"lua-language-server",
+        "html-lsp",
+        "css-lsp",
 		"clangd",
 		"pyright",
 		"bash-language-server",

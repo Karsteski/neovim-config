@@ -79,7 +79,8 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", options)
 -- LspConfig -------------------------------------
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 keymap("n", "<leader>d", vim.diagnostic.open_float, options)
--- keymap("n", "<leader>f", vim.lsp.buf.formatting, options)
+keymap("n", "<leader>f", vim.lsp.buf.format, options)
+
 keymap("n", "[d", vim.diagnostic.goto_prev, options)
 keymap("n", "]d", vim.diagnostic.goto_next, options)
 
