@@ -89,10 +89,18 @@ end
 
 -- Windows Adjustments
 if (auxiliary.isWindowsOS()) then
-    -- Needs bash on PATH
-    -- Those extra outer-level square brackets are necessary on Windows...
-    -- vim.o.shell = [==["C:/Program Files/Git/bin/bash.exe" -i -l]==]
-    -- vim.o.shell = vim.fn.executable"powershell"
+    local powershell_options = {
+      shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+      shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+      shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+      shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+      shellquote = "",
+      shellxquote = "",
+    }
+
+    for option, value in pairs(powershell_options) do
+      vim.opt[option] = value
+    end
 end
 
 -- Current code context
