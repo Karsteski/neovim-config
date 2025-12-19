@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 notify.setup({
-    timeout = 2000,
+    timeout = 2000, -- milliseconds
 })
 
 -- Allow other plugins to use the notification windows
