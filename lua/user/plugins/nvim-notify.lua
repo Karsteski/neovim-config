@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-max_timeout = 1.5
+local max_timeout = 1.5
 
 -- Allow other plugins to use the notification windows
 vim.notify = function (msg, level, opts)
